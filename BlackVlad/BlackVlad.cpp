@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <fstream>
 #include <Windows.h>
 #include <string>
@@ -47,7 +47,7 @@ void AddNames()
     }
     else
     {
-        std::cout << "Open\n";
+        std::cout << "NamesOpen\n";
         std::string stroka;
         int some = 0;
         while (!Name.eof())
@@ -68,28 +68,52 @@ void AddNames()
             {
                 Menu();
             }
-        }
-        std::ofstream Name2;
-        Name2.open("Names.txt");
-        int schet;
-        while (true)
-        {
-            std::string answer;
-            std::cin.ignore(32000, '\n');
-            std::cout << "Введите имя товара:\n";
-            std::getline(std::cin, answer, '\n');
-            Name2 << answer << "\n";
-            std::cout << "Хотите ввести название следующего товара?\n1 - да\n 2 - Нет\n";
-            std::cin >> schet;
-            if (schet == 2)
+            else
             {
-                break;
+                std::ofstream Name2;
+                Name2.open("Names.txt");
+                int schet;
+                while (true)
+                {
+                    std::string answer;
+                    std::cin.ignore(32000, '\n');
+                    std::cout << "Введите имя товара:\n";
+                    std::getline(std::cin, answer, '\n');
+                    Name2 << answer << "\n";
+                    std::cout << "Хотите ввести название следующего товара?\n1 - да\n2 - Нет\n";
+                    std::cin >> schet;
+                    if (schet == 2)
+                    {
+                        break;
+                    }
+                }
+                Name2.close();
             }
         }
-        Name2.close();
+        else
+        {
+            std::ofstream Name2;
+            Name2.open("Names.txt");
+            int schet;
+            while (true)
+            {
+                std::string answer;
+                std::cin.ignore(32000, '\n');
+                std::cout << "Введите имя товара:\n";
+                std::getline(std::cin, answer, '\n');
+                Name2 << answer << "\n";
+                std::cout << "Хотите ввести название следующего товара?\n1 - да\n2 - Нет\n";
+                std::cin >> schet;
+                if (schet == 2)
+                {
+                    break;
+                }
+            }
+            Name2.close();
+        }
+        Name.close();
+        Menu();
     }
-    Name.close();
-    Menu();
 }
 void AddCounts()
 {
@@ -101,7 +125,7 @@ void AddCounts()
     }
     else
     {
-        std::cout << "Open\n";
+        std::cout << "CountsOpen\n";
         std::string stroka;
         int some = 0;
         while (!Count.eof())
@@ -116,33 +140,56 @@ void AddCounts()
         if (some > 0)
         {
             int answ = 0;
-            std::cout << "Файл уже чем-то заполнен. Пропустить зполнение файла?\n1 - Да \n2 - Нет \n";
+            std::cout << "Файл уже чем-то заполнен. Пропустить зполнение файла?\n1 - Да\n2 - Нет\n";
             std::cin >> answ;
             if (answ == 1)
             {
                 Menu();
             }
-        }
-        std::ofstream Count2;
-        Count2.open("Counts.txt");
-        int schet;
-        while (true)
-        {
-            int answer;
-            std::cout << "Введите имя товара:\n";
-            std::cin >> answer;
-            Count2 << answer << "\n";
-            std::cout << "Хотите ввести количество следующего товара?\n1 - да\n 2 - Нет\n";
-            std::cin >> schet;
-            if (schet == 2)
+            else
             {
-                break;
+                std::ofstream Count2;
+                Count2.open("Counts.txt");
+                int schet;
+                while (true)
+                {
+                    int answer;
+                    std::cout << "Введите количество товара:\n";
+                    std::cin >> answer;
+                    Count2 << answer << "\n";
+                    std::cout << "Хотите ввести количество следующего товара?\n1 - да\n2 - Нет\n";
+                    std::cin >> schet;
+                    if (schet == 2)
+                    {
+                        break;
+                    }
+                }
+                Count2.close();
             }
         }
-        Count2.close();
+        else
+        {
+            std::ofstream Count2;
+            Count2.open("Counts.txt");
+            int schet;
+            while (true)
+            {
+                int answer;
+                std::cout << "Введите количество товара:\n";
+                std::cin >> answer;
+                Count2 << answer << "\n";
+                std::cout << "Хотите ввести количество следующего товара?\n1 - да\n2 - Нет\n";
+                std::cin >> schet;
+                if (schet == 2)
+                {
+                    break;
+                }
+            }
+            Count2.close();
+        }
+        Count.close();
+        Menu();
     }
-    Count.close();
-    Menu();
 }
 void AddPrises()
 {
@@ -154,7 +201,7 @@ void AddPrises()
     }
     else
     {
-        std::cout << "Open\n";
+        std::cout << "PriseOpen\n";
         std::string stroka;
         int some = 0;
         while (!Prise.eof())
@@ -169,33 +216,56 @@ void AddPrises()
         if (some > 0)
         {
             int answ = 0;
-            std::cout << "Файл уже чем-то заполнен. Пропустить зполнение файла?\n1 - Да \n2 - Нет \n";
+            std::cout << "Файл уже чем-то заполнен. Пропустить зполнение файла?\n1 - Да\n2 - Нет \n";
             std::cin >> answ;
             if (answ == 1)
             {
                 Menu();
             }
-        }
-        std::ofstream Prise2;
-        Prise2.open("Prises.txt");
-        int schet;
-        while (true)
-        {
-            double answer;
-            std::cout << "Введите имя товара:\n";
-            std::cin >> answer;
-            Prise2 << answer << "\n";
-            std::cout << "Хотите ввести цену следующего товара?\n1 - да\n 2 - Нет\n";
-            std::cin >> schet;
-            if (schet == 2)
+            else
             {
-                break;
+                std::ofstream Prise2;
+                Prise2.open("Prises.txt");
+                int schet;
+                while (true)
+                {
+                    double answer;
+                    std::cout << "Введите цену товара:\n";
+                    std::cin >> answer;
+                    Prise2 << answer << "\n";
+                    std::cout << "Хотите ввести цену следующего товара?\n1 - да\n2 - Нет\n";
+                    std::cin >> schet;
+                    if (schet == 2)
+                    {
+                        break;
+                    }
+                }
+                Prise2.close();
             }
         }
-        Prise2.close();
+        else
+        {
+            std::ofstream Prise2;
+            Prise2.open("Prises.txt");
+            int schet;
+            while (true)
+            {
+                double answer;
+                std::cout << "Введите цену товара:\n";
+                std::cin >> answer;
+                Prise2 << answer << "\n";
+                std::cout << "Хотите ввести цену следующего товара?\n1 - да\n2 - Нет\n";
+                std::cin >> schet;
+                if (schet == 2)
+                {
+                    break;
+                }
+            }
+            Prise2.close();
+        }
+        Prise.close();
+        Menu();
     }
-    Prise.close();
-    Menu();
 }
 void PrintAll()
 {
@@ -208,8 +278,26 @@ void PrintAll()
     prCount.open("Counts.txt");
     prPrise.open("Prises.txt");
     int id = 1;
+    std::string strokaName, strokaCount, strokaPrise;
+    tabl << "Id\tНазвание\tКол-во\tЦена\n";
+    std::cout << "Id\tНазвание\tКол-во\tЦена\n";
     while (!prName.eof())
     {
-        
+        strokaName = "";
+        strokaCount = "";
+        strokaPrise = "";
+        std::getline(prName, strokaName);
+        std::getline(prCount, strokaCount);
+        std::getline(prPrise, strokaPrise);
+        if (strokaName != "" || strokaCount != "" || strokaPrise != "")
+        {
+            tabl << id << ")\t" << strokaName << "\t\t" << strokaCount << "\t" << strokaPrise << "\n";
+            std::cout << id << ")\t" << strokaName << "\t\t" << strokaCount << "\t" << strokaPrise << "\n";
+            id++;
+        }
     }
+    prName.close();
+    prCount.close();
+    prPrise.close();
+    tabl.close();
 }
